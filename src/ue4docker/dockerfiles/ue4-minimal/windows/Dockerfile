@@ -31,7 +31,16 @@ WORKDIR C:\UnrealEngine
 RUN .\Engine\Build\BatchFiles\RunUAT.bat BuildGraph `
     -target="Make Installed Build Win64" `
     -script=Engine/Build/InstalledEngineBuild.xml `
-    -set:HostPlatformOnly=true `
+    -set:GameConfigurations=Development;Shipping `
+    -set:WithWin64=true `
+    -set:WithLinux=true `
+    -set:WithWin32=false `
+    -set:WithMac=false `
+    -set:WithAndroid=false `
+    -set:WithIOS=false `
+    -set:WithTVOS=false `
+    -set:WithLumin=false `
+    -set:WithHTML5=false `
     -set:WithDDC={% if excluded_components.ddc == true %}false{% else %}true{% endif %} `
     {{ buildgraph_args }} && `
 	(if exist C:\UnrealEngine\LocalBuilds\InstalledDDC rmdir /s /q C:\UnrealEngine\LocalBuilds\InstalledDDC) && `

@@ -137,3 +137,12 @@ if (Test-Path "$env:APPDATA\NuGet")
 
 # Display a human-readable completion message
 Write-Output "Finished installing build prerequisites and cleaning up temporary files."
+
+Invoke-WebRequest -Uri "https://cdn.unrealengine.com/CrossToolchain_Linux/v22_clang-16.0.6-centos7.exe" -OutFile "$env:TEMP\v22_clang-16.0.6-centos7.exe"
+
+RunProcessChecked "$env:TEMP\v22_clang-16.0.6-centos7.exe" @("/S")
+
+if (Test-Path "$env:TEMP\v22_clang-16.0.6-centos7.exe")
+{
+    Remove-Item -LiteralPath "$env:TEMP\v22_clang-16.0.6-centos7.exe" -Force
+}

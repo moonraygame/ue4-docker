@@ -27,3 +27,21 @@ patchFile(
     "Module.ExportJson(Module.Binary?.OutputDir, GetExecutableDir(), Writer);",
     "Module.ExportJson((Module.Binary != null || Binaries.Count == 0) ? Module.Binary?.OutputDir : Binaries[0].OutputDir, GetExecutableDir(), Writer);",
 )
+
+patchFile(
+    os.path.join(sys.argv[1], "Configuration", "TargetRules.cs"),
+    "get => bWithPushModelOverride ?? (Type == TargetType.Editor);",
+    "get => bWithPushModelOverride ?? true;"
+)
+
+patchFile(
+    os.path.join(sys.argv[1], "Configuration", "TargetRules.cs"),
+    "public bool bUseLoggingInShipping = false;",
+    "public bool bUseLoggingInShipping = true;"
+)
+
+patchFile(
+    os.path.join(sys.argv[1], "Configuration", "TargetRules.cs"),
+    "public bool bForceEnableExceptions = false;",
+    "public bool bForceEnableExceptions = true;"
+)
