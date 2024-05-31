@@ -86,3 +86,6 @@ RUN rmdir /s /q C:\UnrealEngine\Engine\Platforms\XXX 2>NUL || exit 0
 COPY patch-ubt.py C:\patch-ubt.py
 RUN python C:\patch-ubt.py C:\UnrealEngine\Engine\Source\Programs\UnrealBuildTool
 {% endif %}
+
+COPY UpdateSentryDsn.ps1 C:\UpdateSentryDsn.ps1
+RUN powershell -f C:\UpdateSentryDsn.ps1 "https://o1258984.ingest.sentry.io/api/6433709/unreal/ff3e17918d764793a3d16beafb39c19a/"
