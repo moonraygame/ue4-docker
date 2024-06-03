@@ -31,7 +31,7 @@ WORKDIR C:\UnrealEngine
 RUN .\Engine\Build\BatchFiles\RunUAT.bat BuildGraph `
     -target="Make Installed Build Win64" `
     -script=Engine/Build/InstalledEngineBuild.xml `
-    -set:GameConfigurations=Development;Shipping `
+    -set:GameConfigurations="Development;Shipping" `
     -set:WithWin64=true `
     -set:WithLinux=true `
     -set:WithWin32=false `

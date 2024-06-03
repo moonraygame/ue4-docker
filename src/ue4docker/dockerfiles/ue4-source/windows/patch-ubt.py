@@ -39,9 +39,3 @@ patchFile(
     "public bool bUseLoggingInShipping = false;",
     "public bool bUseLoggingInShipping = true;"
 )
-
-patchFile(
-    os.path.join(sys.argv[1], "Configuration", "TargetRules.cs"),
-    "public bool bForceEnableExceptions = false;",
-    "public bool bForceEnableExceptions = true;"
-)
